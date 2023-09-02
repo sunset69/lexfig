@@ -1,6 +1,12 @@
 #!/bin/bash
 
-sudo apt-get install ranger -y
+if dpkg -s ranger >/dev/null 2>&1; then
+    echo "ranger已安装"
+else
+    echo "ranger未安装，正在安装..."
+    sudo apt-get install ranger -y
+fi
+
 # 软链接当前路径到指定目录
 ln -s "$(pwd)" ~/.config/
 
