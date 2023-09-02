@@ -38,8 +38,17 @@ else
     exit 1
 fi
 
+# 检查是否已经具有sudo权限
+if [[ $EUID -ne 0 ]]; then
+    echo "该脚本需要以sudo权限运行，请输入密码："
+    sudo "$0" "$@"  # 使用sudo重新运行脚本
+    exit $?  # 退出当前非sudo权限的脚本
+fi
+
+# 在这里添加你的脚本代码，已经具有sudo权限
+
 echo "更新中..."
-apt-get update >> /dev/null
+apt-get update
 
 # 遍历软件列表并安装
 for software in ${software_list[@]}; do
