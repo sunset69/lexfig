@@ -1,0 +1,20 @@
+# 此文件为自动安装软件列表，使用井号可以实现注释
+neovim
+ufw
+nodejs
+zsh
+openssh-server
+
+# ======ranger start======
+ranger
+highlight
+atool
+# 多媒体预览
+#mediainfo
+# doc预览
+#catdoc
+# docx预览
+#docx2txt
+# xlsx预览
+#xlsx2csv
+# ======ranger end======
