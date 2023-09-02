@@ -1,0 +1,18 @@
+[init]
+	defaultBranch = main
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  b = branch
+  cfg = config
+  r = remote
+  m = merge
+  pl = pull
+  ps = push
+  l = log
+  sb = show-branch
+  di = diff                                                                                                                                                                  
+  gl = log --graph --pretty=format:'%h%Cred%d%Creset @%Cgreen%an%Creset %s [%ar]' --abbrev-commit --color --decorate --date-order
+  dc = diff --color --cached
