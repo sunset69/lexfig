@@ -4,6 +4,8 @@ ufw
 nodejs
 zsh
 openssh-server
+git
+wget
 
 # ======ranger start======
 ranger
