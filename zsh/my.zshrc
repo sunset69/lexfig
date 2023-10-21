@@ -1,50 +1,8 @@
 #color{{{
 autoload -U colors && colors
 
-#命令别名 {{{
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias ls='ls -a --color=auto'
-alias grep='grep --color=auto'
 
-# 更新软件
-function updateall() {
-	echo "请检查有没有开代理,你有10s时间开启"
-	sleep 10
-	if [ "$proxy_statu" = "off" ]; then
-		proxy_on
-	fi
-	brew update
-	brew upgrade
-	proxy_off
-	conda update --all -y
-	julia -e "import Pkg;Pkg.update();Pkg.gc()"
 
-	if [ "$proxy_statu" = "on" ]; then
-		proxy_on
-	fi
-}
-
-# 清理垃圾
-function clean() {
-#	rm -rf ~/miniconda3/pkgs/*
-}
-
-#终端代理
-proxy_statu="off"
-function proxy_on() {
-	proxy_off="on"
-	export http_proxy=http://127.0.0.1:7890
-	export https_proxy=$http_proxy
-	echo -e "终端代理已开启。"
-}
-
-function proxy_off(){
-	unset http_proxy https_proxy
-	echo -e "终端代理已关闭。"
-	proxy_off="off"
-}
 
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
 	eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
@@ -358,3 +316,7 @@ check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
 
 zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
+
+
+# git配置
+autoload -Uz compinit && compinit

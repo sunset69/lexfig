@@ -1,0 +1,9 @@
+[Unit]
+Description=Clash Service
+After=network.target
+
+[Service]
+ExecStart=/home/lexur/config/clash/clash -d /home/lexur/config/clash
+
+[Install]
+WantedBy=default.target
